@@ -6,5 +6,5 @@ import { DialogAvatarSelectComponent } from './dialogs/dialog.avatar-select-comp
 export const routes: Routes = [
   { path: 'login', component: DialogLoginComponent },
   { path: 'signin', component: DialogSigninComponent },
-  { path: 'signin', component: DialogAvatarSelectComponent },
+  { path: 'avatar-select', component: DialogAvatarSelectComponent },
 ];
