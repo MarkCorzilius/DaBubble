@@ -1,15 +1,31 @@
+import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { DialogSigninComponent } from '../dialogs/dialog.signin-component/dialog.signin-component';
 import { MatIconModule } from '@angular/material/icon';
+import { Router, RouterModule } from '@angular/router';
 
 @Component({
   selector: 'app-backdrop-component',
-  imports: [MatIconModule],
+  imports: [MatIconModule, RouterModule, CommonModule],
   templateUrl: './backdrop-component.html',
-  styleUrl: './backdrop-component.scss'
+  styleUrl: './backdrop-component.scss',
 })
 export class BackdropComponent {
+  private footerVisibleOnRoutes = [
+    '/login',
+    '/signin',
+    '/forgot-password',
+    '/reset-password',
+    '/avatar-select',
+  ];
+
+  constructor(public router: Router) {}
+
+  get showFooter(): boolean {
+    return this.footerVisibleOnRoutes.some(route => this.router.url.includes(route))
+  }
+
 
     constructor(public dialog: MatDialog) {}
 
