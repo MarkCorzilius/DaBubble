@@ -1,15 +1,19 @@
 <section>
-    <header class="header">
-        <figure class="logo">
-            <img src="assets/icons/static-logo.svg" alt="Backdrop Image">
-        </figure>
-        <hgroup class="signup-text">
-            <p>Neu bei DABubble?</p>
-            <a href="">Konto erstellen</a>
-        </hgroup>
-    </header>
-    <footer class="footer">
-        <a href="">Impressum</a>
-        <a href="">Datenschutz</a>
-    </footer>
+  <header class="header">
+    <figure class="logo">
+      <a [routerLink]="'/login'"><img src="assets/icons/static-logo.svg" alt="Backdrop Image" /></a>
+    </figure>
+    @if (this.router.url.includes('/login')) {
+    <hgroup class="signup-text">
+      <p>Neu bei DABubble?</p>
+      <a [routerLink]="'/signin'">Konto erstellen</a>
+    </hgroup>
+    }
+  </header>
+  @if (showFooter) {
+  <footer class="footer">
+    <a [routerLink]="'/imprint'">Impressum</a>
+    <a [routerLink]="'/privacy-policy'">Datenschutz</a>
+  </footer>
+  }
 </section>
