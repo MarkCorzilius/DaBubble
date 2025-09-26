@@ -6,7 +6,7 @@
     @if (this.router.url.includes('/login')) {
     <hgroup class="signup-text">
       <p>Neu bei DABubble?</p>
-      <a [routerLink]="'/signin'">Konto erstellen</a>
+      <a (click)="openDialog(); $event.preventDefault()" [routerLink]="'/signin'">Konto erstellen</a>
     </hgroup>
     }
   </header>

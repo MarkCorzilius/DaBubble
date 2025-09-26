@@ -1,10 +1,13 @@
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
+import { DialogSigninComponent } from '../dialogs/dialog.signin-component/dialog.signin-component';
+import { MatIconModule } from '@angular/material/icon';
 import { Router, RouterModule } from '@angular/router';
 
 @Component({
   selector: 'app-backdrop-component',
-  imports: [RouterModule, CommonModule],
+  imports: [MatIconModule, RouterModule, CommonModule],
   templateUrl: './backdrop-component.html',
   styleUrl: './backdrop-component.scss',
 })
@@ -23,5 +26,15 @@ export class BackdropComponent {
     return this.footerVisibleOnRoutes.some(route => this.router.url.includes(route))
   }
 
+
+    constructor(public dialog: MatDialog) {}
+
+  openDialog(): void {
+    const dialogRef = this.dialog.open(DialogSigninComponent);
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log('The dialog was closed');
+    });
+  }
 
 }
