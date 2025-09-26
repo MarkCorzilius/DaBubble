@@ -1,0 +1,46 @@
+@use 'mixins';
+
+section {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.header {
+  display: flex;
+  flex: 1;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.logo {
+  margin-top: 20px;
+}
+
+.signup-text {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-right: 40px;
+  margin-top: 20px;
+
+  > p {
+    font-family: 'Nunito', sans-serif;
+  }
+
+  > a {
+    @include mixins.nav-link();
+  }
+}
+
+.footer {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  margin: auto 0 40px;
+  gap: 16px;
+
+  > a {
+    @include mixins.nav-link();
+  }
+}

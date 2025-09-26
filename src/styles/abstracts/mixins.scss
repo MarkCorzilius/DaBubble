@@ -1,0 +1,14 @@
+@mixin nav-link($size: 18px, $font-family: 'Figtree', $color: #797ef3, $hover-color: #444df2) {
+  color: $color;
+  font-size: 18px;
+  text-decoration: none;
+  padding: 12px 25px;
+  border-radius: 25px;
+  border: 1px solid transparent;
+  transition: all 125ms ease-in-out;
+
+  &:hover {
+    color: $hover-color;
+    border: 1px solid #797ef3;
+  }
+}
