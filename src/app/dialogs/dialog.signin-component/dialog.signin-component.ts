@@ -5,6 +5,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { ReactiveFormsModule, FormGroup, FormControl, Validators } from '@angular/forms';
 import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatIconModule } from '@angular/material/icon';
 import { User } from '../../../models/user.class';
 import { MyErrorStateMatcher } from '../error-state-matcher';
 
@@ -16,7 +17,8 @@ import { MyErrorStateMatcher } from '../error-state-matcher';
     MatButtonModule,
     ReactiveFormsModule,
     MatInputModule,
-    MatFormFieldModule
+    MatFormFieldModule,
+    MatIconModule
   ],
   providers: [],
   templateUrl: './dialog.signin-component.html',
