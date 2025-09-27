@@ -11,30 +11,4 @@ import { Router, RouterModule } from '@angular/router';
   templateUrl: './backdrop-component.html',
   styleUrl: './backdrop-component.scss',
 })
-export class BackdropComponent {
-  private footerVisibleOnRoutes = [
-    '/login',
-    '/signin',
-    '/forgot-password',
-    '/reset-password',
-    '/avatar-select',
-  ];
-
-  constructor(public router: Router) {}
-
-  get showFooter(): boolean {
-    return this.footerVisibleOnRoutes.some(route => this.router.url.includes(route))
-  }
-
-
-    constructor(public dialog: MatDialog) {}
-
-  openDialog(): void {
-    const dialogRef = this.dialog.open(DialogSigninComponent);
-
-    dialogRef.afterClosed().subscribe(result => {
-      console.log('The dialog was closed');
-    });
-  }
-
-}
+export class BackdropComponent {}

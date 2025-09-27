@@ -6,6 +6,7 @@
   border-radius: 25px;
   border: 1px solid transparent;
   transition: all 125ms ease-in-out;
+  cursor: pointer;
 
   &:hover {
     color: $hover-color;
