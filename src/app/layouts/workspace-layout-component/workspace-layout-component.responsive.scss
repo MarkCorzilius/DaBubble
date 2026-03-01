@@ -6,7 +6,7 @@
 
 @media (max-width: 950px) {
   :host {
-    height: 100vh;
+    height: 100dvh;
     padding: 0;
   }
 
@@ -34,8 +34,6 @@
   .main-content-wrapper {
     margin: 0;
   }
-
-
 
   .thread-sidenav {
     width: 100vw;
