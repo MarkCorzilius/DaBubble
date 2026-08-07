@@ -50,7 +50,7 @@
         [reactionsMap]="message.reactions"
       ></app-message-bubble>
     </div>
-    } @empty { @if (isOwnDm) {
+    } @empty { @if (isOwnDm()) {
     <section>
       <button class="avatar-figure-button" (click)="openUserCard()">
         <figure class="avatar-figure">

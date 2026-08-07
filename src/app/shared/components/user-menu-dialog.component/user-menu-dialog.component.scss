@@ -37,26 +37,34 @@
   align-items: center;
   justify-content: center;
   gap: 12px;
-  transition: background 0.15s ease, color 0.15s ease;
+  transition:
+    background 0.15s ease,
+    color 0.15s ease;
 }
 
-.pill.profile  { --icon: url('/assets/icons/account_circle.svg'); --icon-hover: url('/assets/icons/account_circle.hovered.svg'); }
-.pill.logout   { --icon: url('/assets/icons/logout.svg');         --icon-hover: url('/assets/icons/logout-hover.svg'); }
+.pill.profile {
+  --icon: url('../../../../assets/icons/account_circle.svg');
+  --icon-hover: url('../../../../assets/icons/account_circle.hovered.svg');
+}
+.pill.logout {
+  --icon: url('../../../../assets/icons/logout.svg');
+  --icon-hover: url('../../../../assets/icons/logout-hover.svg');
+}
 
-.pill .icon{
+.pill .icon {
   display: none;
   flex: 0 0 24px;
   width: 24px;
   height: 24px;
   background: var(--icon) center/contain no-repeat;
-  transition: background-image .15s ease;
+  transition: background-image 0.15s ease;
 }
 
 .pill:hover,
 .pill:focus-visible,
 .pill:active {
-  background: #ECEEFE;
-  color: #535AF1;
+  background: #eceefe;
+  color: #535af1;
   outline: none;
 }
 

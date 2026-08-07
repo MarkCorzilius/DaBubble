@@ -52,8 +52,9 @@ export class MessageMiniActionsComponent {
   }
 
   /** Handle reply button click - opens thread panel */
-  onReplyClick() {
+  onReplyClick(event: MouseEvent) {
     if (this.isDeleted) return;
+    event.stopPropagation();
     this.visibilityChange.emit(false);
     if (!this.chatId || !this.messageId) return;
     this.openThread.emit({

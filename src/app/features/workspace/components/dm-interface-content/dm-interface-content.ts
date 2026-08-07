@@ -1,12 +1,4 @@
-import {
-  AfterViewInit,
-  Component,
-  computed,
-  EnvironmentInjector,
-  inject,
-  signal,
-  WritableSignal,
-} from '@angular/core';
+import { Component, computed, signal, WritableSignal } from '@angular/core';
 import { runInInjectionContext } from '@angular/core';
 import { MessageAreaComponent } from '../../../../shared/components/message-area-component/message-area-component';
 import { Firestore, doc, getDoc } from '@angular/fire/firestore';
@@ -35,10 +27,10 @@ import { ReadStateService } from '../../../../../services/read-state.service';
 export class DmInterfaceContent extends BaseChatInterfaceComponent {
   override collectionName: 'channels' | 'dms' = 'dms';
   private _recipientData: WritableSignal<any | null> = signal(null);
-  isOwnDm: boolean = false;
+  isOwnDm = signal(false);
 
   recipientData = computed(() => {
-    return this.isOwnDm ? this.currentUserProfile() : this._recipientData();
+    return this.isOwnDm() ? this.currentUserProfile() : this._recipientData();
   });
 
   /**
@@ -53,7 +45,7 @@ export class DmInterfaceContent extends BaseChatInterfaceComponent {
     protected override firestore: Firestore,
     protected override authService: AuthService,
     private dialog: MatDialog,
-    private read: ReadStateService
+    private read: ReadStateService,
   ) {
     super(route, firestore, authService);
   }
@@ -106,7 +98,7 @@ export class DmInterfaceContent extends BaseChatInterfaceComponent {
   private async loadRecipientData(chatId: string): Promise<void> {
     const user = await firstValueFrom(this.authService.currentUser$);
     if (!user) return;
-    this.isOwnDm = chatId === `${user.uid}-${user.uid}`;
+    this.isOwnDm.set(chatId === `${user.uid}-${user.uid}`);
     const dmSnap = await this.getDmSnap(chatId);
 
     if (dmSnap.exists()) {
@@ -124,11 +116,9 @@ export class DmInterfaceContent extends BaseChatInterfaceComponent {
    * @param user - Current authenticated user.
    */
   private async setRecipientData(recipientId: string | undefined, user: any) {
-    if (this.isOwnDm) {
-      this.recipientData = this.currentUserProfile;
-    } else if (recipientId) {
+    if (!this.isOwnDm() && recipientId) {
       this._recipientData.set(await this.getUserData(recipientId));
-    } else {
+    } else if (!this.isOwnDm()) {
       this._recipientData.set(null);
     }
   }

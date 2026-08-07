@@ -18,8 +18,9 @@
     rows="1"
     (keydown)="onKeyDown($event)"
   ></textarea>
-  @if (focused || text.length > 0) { } @else {
-  <span class="textarea-placeholder">{{ hintText }}</span>
+  @if (focused || text.length > 0) {
+  } @else {
+    <span class="textarea-placeholder">{{ hintText }}</span>
   }
 
   <section class="bottom-row" aria-hidden="false">
@@ -46,7 +47,9 @@
       [disabled]="!text.trim() || disabled"
       (click)="triggerSend()"
       aria-label="Nachricht senden"
-    ></button>
+    >
+      <img class="send-icon" src="assets/icons/send.svg" alt="Senden" />
+    </button>
   </section>
 
   <section class="mention-anchor">

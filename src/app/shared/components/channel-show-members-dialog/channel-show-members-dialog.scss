@@ -36,14 +36,15 @@ $offline: #b7bcc5;
   width: 20px;
   height: 20px;
   padding: 10px;
-  transition: background 125ms ease, transform 125ms ease;
+  transition:
+    background 125ms ease,
+    transform 125ms ease;
   border-radius: 50%;
   background: transparent;
   cursor: pointer;
 
   &:hover {
     background: $hover-bg;
-    content: url('/assets/icons/close-hover.svg');
   }
 }
 
@@ -71,7 +72,9 @@ $offline: #b7bcc5;
   padding: 3px 20px;
   border-radius: 30px;
   cursor: pointer;
-  transition: background 125ms ease, color 125ms ease;
+  transition:
+    background 125ms ease,
+    color 125ms ease;
 
   width: fit-content;
   max-width: 100%;
@@ -109,7 +112,9 @@ $offline: #b7bcc5;
   border-radius: 50%;
   background: $offline;
   border: 2px solid #fff;
-  transition: background 125ms ease, border-color 125ms ease;
+  transition:
+    background 125ms ease,
+    border-color 125ms ease;
 }
 
 .is-online .status-dot {
@@ -149,7 +154,7 @@ $offline: #b7bcc5;
 
     .add-icon {
       background-color: $hover-bg;
-      background-image: url('/assets/icons/add-person-to-channel-hover.svg');
+      background-image: url('../../../../assets/icons/add-person-to-channel-hover.svg');
       background-size: 32px;
       background-position: center;
       background-repeat: no-repeat;
@@ -164,7 +169,7 @@ $offline: #b7bcc5;
   cursor: pointer;
 
   background-color: transparent;
-  background-image: url('/assets/icons/add-person-to-channel.svg');
+  background-image: url('../../../../assets/icons/add-person-to-channel.svg');
   background-repeat: no-repeat;
   background-position: center;
   background-size: 50px;
@@ -235,5 +240,4 @@ $offline: #b7bcc5;
   .dlg-header {
     margin-left: 20px;
   }
-
 }

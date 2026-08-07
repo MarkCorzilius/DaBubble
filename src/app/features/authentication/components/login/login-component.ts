@@ -53,7 +53,7 @@ export class LoginComponent {
   constructor(
     public router: Router,
     private authService: AuthService,
-    private userService: UserService
+    private userService: UserService,
   ) {
     this.loginForm.valueChanges.pipe(takeUntilDestroyed()).subscribe(() => {
       this.resetLoginFailedError();
@@ -63,7 +63,7 @@ export class LoginComponent {
       this.loginForm.controls.email.statusChanges,
       this.loginForm.controls.email.valueChanges,
       this.loginForm.controls.password.statusChanges,
-      this.loginForm.controls.password.valueChanges
+      this.loginForm.controls.password.valueChanges,
     )
       .pipe(takeUntilDestroyed())
       .subscribe(() => this.updateErrorMessages());
@@ -114,10 +114,9 @@ export class LoginComponent {
     const { email, password } = this.loginForm.getRawValue();
     try {
       await this.authService.loginWithEmail(email!, password!);
+      await this.navigateToSelfDm();
     } catch (err: any) {
       this.setErrorMessages();
-    } finally {
-      await this.navigateToSelfDm();
     }
   }
 
@@ -190,10 +189,9 @@ export class LoginComponent {
     try {
       await this.authService.loginAsGuest();
       await this.userService.markOnline(true);
+      await this.navigateToSelfDm();
     } catch (err) {
       console.error('Guest login failed', err);
-    } finally {
-      await this.navigateToSelfDm();
     }
   }
 

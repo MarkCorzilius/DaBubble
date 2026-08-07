@@ -71,14 +71,6 @@
     transition: 0.2s;
   }
 
-  &:first-child:hover img {
-    content: url('/assets/icons/sentiment-hover.svg');
-  }
-
-  &:nth-child(2):hover img {
-    content: url('/assets/icons/alternate-hover.svg');
-  }
-
   &:hover {
     background: #f1f3fe;
   }
@@ -104,7 +96,10 @@
   color: #797ef3;
   font-family: 'Nunito', sans-serif;
   cursor: pointer;
-  transition: background 0.15s, color 0.15s, border 0.15s;
+  transition:
+    background 0.15s,
+    color 0.15s,
+    border 0.15s;
   border: #797ef3 1px solid;
   box-shadow: none;
   padding: 12px 25px;
@@ -118,12 +113,12 @@
   }
 }
 
-  :host ::ng-deep app-emoji-picker-component {
+:host ::ng-deep app-emoji-picker-component {
   .emoji-picker-container,
   .emoji-mart {
     overflow: visible;
   }
-    .emoji-picker-container {
+  .emoji-picker-container {
     left: 0px !important;
     bottom: 30px !important;
   }
@@ -166,18 +161,18 @@
   }
 
   :host ::ng-deep app-emoji-picker-component {
-  .emoji-picker-container {
-    left: -40px !important;
+    .emoji-picker-container {
+      left: -40px !important;
+    }
   }
-}
 }
 
 @media (max-width: 500px) {
   :host ::ng-deep app-emoji-picker-component {
-  .emoji-picker-container {
-    left: 0 !important;
+    .emoji-picker-container {
+      left: 0 !important;
+    }
   }
-}
 }
 
 @media (max-width: 400px) {

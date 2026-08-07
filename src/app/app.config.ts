@@ -4,6 +4,7 @@ import {
   provideBrowserGlobalErrorListeners,
   provideZoneChangeDetection,
 } from '@angular/core';
+import { provideNgxSkeletonLoader } from 'ngx-skeleton-loader';
 import { provideRouter } from '@angular/router';
 import { MAT_RIPPLE_GLOBAL_OPTIONS, RippleGlobalOptions } from '@angular/material/core';
 
@@ -11,12 +12,16 @@ import { AuthRoutes } from './app.routes';
 import { initializeApp, provideFirebaseApp, getApp } from '@angular/fire/app';
 import { getAuth, provideAuth } from '@angular/fire/auth';
 import { provideFirestore } from '@angular/fire/firestore';
-import { initializeFirestore, persistentLocalCache, persistentMultipleTabManager } from 'firebase/firestore';
+import {
+  initializeFirestore,
+  persistentLocalCache,
+  persistentMultipleTabManager,
+} from 'firebase/firestore';
 import { environment } from '../environments/environment.development';
 import { AppRoutingModule } from './app-routing-module';
 
 const globalRippleConfig: RippleGlobalOptions = {
-  disabled: true
+  disabled: true,
 };
 
 export const appConfig: ApplicationConfig = {
@@ -25,9 +30,7 @@ export const appConfig: ApplicationConfig = {
     provideBrowserGlobalErrorListeners(),
     provideZoneChangeDetection({ eventCoalescing: true }),
     provideRouter(AuthRoutes),
-    provideFirebaseApp(() =>
-      initializeApp(environment.firebase)
-    ),
+    provideFirebaseApp(() => initializeApp(environment.firebase)),
     provideAuth(() => getAuth()),
     provideFirestore(() => {
       const firestore = initializeFirestore(getApp(), {
@@ -38,7 +41,12 @@ export const appConfig: ApplicationConfig = {
       });
       return firestore;
     }),
-    {provide: MAT_RIPPLE_GLOBAL_OPTIONS, useValue: globalRippleConfig}
-
+    { provide: MAT_RIPPLE_GLOBAL_OPTIONS, useValue: globalRippleConfig },
+    provideNgxSkeletonLoader({
+      theme: {
+        extendsFromRoot: true,
+        height: '30px',
+      },
+    }),
   ],
 };

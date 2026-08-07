@@ -19,7 +19,7 @@
   display: flex;
   align-items: center;
 
-  transform: translate(calc(50vw - 135px), calc(50vh - 135px));
+  transform: translate(calc(50vw - 135px), calc(50dvh - 135px));
 
   animation: slideLogoLeft 1s ease-in-out 0.5s forwards,
     moveFromCenterToCorner 1s ease-in-out 2.5s forwards;
@@ -61,10 +61,10 @@
 /* KEYFRAMES */
 @keyframes slideLogoLeft {
   from {
-    transform: translate(calc(50vw - 135px), calc(50vh - 135px));
+    transform: translate(calc(50vw - 135px), calc(50dvh - 135px));
   }
   to {
-    transform: translate(calc(50vw - 270px), calc(50vh - 135px));
+    transform: translate(calc(50vw - 270px), calc(50dvh - 135px));
   }
 }
 
@@ -90,7 +90,7 @@
 
 @keyframes moveFromCenterToCorner {
   0% {
-    transform: translate(calc(50vw - 270px), calc(50vh - 135px));
+    transform: translate(calc(50vw - 270px), calc(50dvh - 135px));
   }
   90% {
     transform: translate(0, 0);
@@ -173,11 +173,11 @@
     transform: translate(-50%, -50%);
   }
   90% {
-    transform: translate(-50%, calc(-50vh + 50px));
+    transform: translate(-50%, calc(-50dvh + 50px));
     opacity: 1;
   }
   100% {
-    transform: translate(-50%, calc(-50vh + 50px));
+    transform: translate(-50%, calc(-50dvh + 50px));
     opacity: 0;
   }
 }

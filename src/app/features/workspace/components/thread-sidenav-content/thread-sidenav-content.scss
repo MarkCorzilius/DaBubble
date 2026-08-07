@@ -66,10 +66,6 @@
     transition: 0.2s;
   }
 
-  &:first-child:hover img {
-    content: url('/assets/icons/close-hover.svg');
-  }
-
   &:hover {
     background: #f1f3fe;
   }
@@ -221,51 +217,51 @@
 }
 
 @media (min-width: 950px) {
-:host app-message-bubble ::ng-deep .btn {
-  height: 40px !important;
-}
-
-:host app-message-bubble ::ng-deep .btn.btn--secondary {
-  min-width: 60px !important;
-  padding: 0 !important;
-  font-size: 0 !important;
-
-  &::before {
-    content: '✕';
-    font-size: 16px;
-    font-weight: 800;
-    color: #797ef3;
-    transition: color 0.15s;
+  :host app-message-bubble ::ng-deep .btn {
+    height: 40px !important;
   }
 
-  &:hover::before {
-    color: #ffffff;
-  }
-}
+  :host app-message-bubble ::ng-deep .btn.btn--secondary {
+    min-width: 60px !important;
+    padding: 0 !important;
+    font-size: 0 !important;
 
-:host app-message-bubble ::ng-deep .btn.btn--primary {
-  min-width: 60px !important;
-  padding: 0 !important;
-  font-size: 0 !important;
+    &::before {
+      content: '✕';
+      font-size: 16px;
+      font-weight: 800;
+      color: #797ef3;
+      transition: color 0.15s;
+    }
 
-  &::before {
-    content: '✓';
-    font-size: 16px;
-    font-weight: 700;
-    color: #ffffff;
+    &:hover::before {
+      color: #ffffff;
+    }
   }
-}
+
+  :host app-message-bubble ::ng-deep .btn.btn--primary {
+    min-width: 60px !important;
+    padding: 0 !important;
+    font-size: 0 !important;
+
+    &::before {
+      content: '✓';
+      font-size: 16px;
+      font-weight: 700;
+      color: #ffffff;
+    }
+  }
 }
 
 .thread-emoji-override ::ng-deep .mention-panel {
-  width: 260px;        
-  max-height: 250px;     
-  overflow: visible;     
-  padding: 12px 14px;   
+  width: 260px;
+  max-height: 250px;
+  overflow: visible;
+  padding: 12px 14px;
 }
 
 .thread-emoji-override ::ng-deep .mention-panel .list {
-  max-height: 220px;    
+  max-height: 220px;
   overflow-y: auto;
 }
 
