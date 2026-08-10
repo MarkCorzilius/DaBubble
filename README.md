@@ -1,5 +1,13 @@
 # Dabubble
 
+## Description ⭐
+
+A full-featured chat messenger application focused on real-time communication and organized collaboration. Users can register, log in, reset their passwords, and communicate through private chats or channels.
+
+Users can create channels with selected members, exchange messages in private conversations, and start dedicated threads within channels to keep discussions structured and focused.
+
+
+
 This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 20.1.6.
 
 ## Development server
